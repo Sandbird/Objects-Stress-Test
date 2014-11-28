@@ -19,6 +19,7 @@ for "_i" from 0 to 30 do {
 for "_i" from 0 to _amount do {
 	_random = [random 14000,random 14000,0];
 	_object = "land_panelak3" createVehicleLocal _random; // "GUE_Commander" for traders
+	//if (simulationEnabled _object) then {systemChat format ["Simulation is enabled for local %1",typeOf _object];} else {systemChat format ["Simulation is disabled for local %1",typeOf _object];};
 	_object setDir 0;
 	_object setPos _random;
 	_object allowDamage false;
@@ -49,15 +50,16 @@ for "_i" from 0 to 30 do {
 };
 
 // Hide/disable sim/delete objects > _dist away
-//_objects = nearestObjects [[7840,8410,0],["AllVehicles","BuiltItems","DZE_Base_Object","DZE_Housebase","House","ModularItems"],12000]; // For all map objects //Remove "AllVehicles" to exclude drivable vehicles
-//waitUntil {uiSleep 1;systemChat "Waiting for objects array from server (may take a few minutes)..";(!isNil "spawnedObjectsArray")};
+_objects = nearestObjects [[7840,8410,0],["AllVehicles","BuiltItems","DZE_Base_Object","DZE_Housebase","House","ModularItems"],12000]; // For all map objects //Remove "AllVehicles" to exclude drivable vehicles
+//waitUntil {uiSleep 1;systemChat "Waiting for objects array from server (may take a few minutes)..";(!isNil "spawnedObjectsArray")}; //Uncomment if testing global objects
 {
 	if (player distance _x > _distance) then {
-		_x hideObject true;
-		//_x enableSimulation false; //uncomment to test disabling simulation
+		//_x hideObject true; // uncomment to test hiding
+		//if (simulationEnabled _x) then {systemChat format ["Simulation is enabled for %1 on client",typeOf _x];} else {systemChat format ["Simulation is disabled for %1 on client",typeOf _x];};
+		_x enableSimulation false; //uncomment to test disabling simulation
 		//deleteVehicle _x; //uncomment to test deleting (note deleting built-in map buildings will not work)
 	};
-} count _spawned; // Use _objects instead of _spawned to test all map objects // Or use spawnedObjectsArray for global objects from spawnobjects.sqf
+} count _spawned; // Use _objects instead of _spawned to test all map objects // Use spawnedObjectsArray for global objects with spawnobjects.sqf //Or use (allMissionObjects "All") for everything
 
 // Record FPS for 60s after hiding objects
 uiSleep 2;

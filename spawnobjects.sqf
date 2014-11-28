@@ -14,6 +14,7 @@ for "_i" from 0 to 30 do {
 for "_i" from 0 to _amount do {
 	_random = [random 14000,random 14000,0];
 	_object = createVehicle ["land_panelak3",_random,[],0,"CAN_COLLIDE"]; // "GUE_Commander" for AI, "Skoda" for cars
+	//if (simulationEnabled _object) then {diag_log format ["Simulation is enabled for global %1",typeOf _object];} else {diag_log format ["Simulation is disabled for global %1",typeOf _object];}; 
 	_object setDir 0;
 	_object setPos _random;
 	_object allowDamage false;
@@ -29,6 +30,15 @@ for "_i" from 0 to _amount do {
 		_object forceSpeed 0;
 		_object enableSimulation false;
 	};
+	*/
+	/* //Use for cars
+	_uniqueid = str(round(random 999999));
+	_object setVariable ["CharacterID",_uniqueid,true];
+	_object setVariable ["ObjectID",_uniqueid,true];
+	_object setVariable ["ObjectUID",_uniqueid,true];
+	_object setVariable ["lastUpdate",time,true];
+	if (!isNil "dayz_serverObjectMonitor") then {dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];};
+	if (!isNil "PVDZE_serverObjectMonitor") then {PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,_object];};
 	*/
 	_spawned set [count _spawned,_object];
 };
