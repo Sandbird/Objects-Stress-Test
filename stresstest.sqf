@@ -56,7 +56,7 @@ for "_i" from 0 to 30 do {
 		//_x enableSimulation false; //uncomment to test disabling simulation
 		//deleteVehicle _x; //uncomment to test deleting (note deleting built-in map buildings will not work)
 	};
-} count _spawned; // Use _objects instead of _spawned to test all map objects
+} count _spawned; // Use _objects instead of _spawned to test all map objects // Or use spawnedArray for global objects from spawnglobal.sqf
 
 // Record FPS for 60s after hiding objects
 uiSleep 2;
