@@ -3,7 +3,7 @@ private ["_amount","_log","_object","_random","_spawned"];
 _amount = 10000; // Amount of objects to spawn
 _spawned = [];
 
-// Record Server FPS for 60s before spawning objects
+// Record server FPS for 60s before spawning objects
 for "_i" from 0 to 30 do {
     _log = format ["SERVER FPS: ( %1 ) BEFORE SPAWNING: ( %2 ) OBJECTS.  TIME: %3/60s",round diag_fps,_amount,_i*2];
     diag_log _log;
@@ -34,10 +34,10 @@ for "_i" from 0 to _amount do {
 };
 
 // Send array of objects to client for testing
-spawnedArray = _spawned;
-publicVariable "spawnedArray";
+spawnedObjectsArray = _spawned;
+publicVariable "spawnedObjectsArray";
 
-// Record FPS for 60s after spawning objects
+// Record server FPS for 60s after spawning objects
 uiSleep 2;
 for "_i" from 0 to 30 do {
     _log = format ["SERVER FPS: ( %1 ) AFTER SPAWNING: ( %2 ) OBJECTS.  TIME: %3/60s",round diag_fps,_amount,_i*2];

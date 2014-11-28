@@ -12,14 +12,14 @@ if (!isDedicated && ((getPlayerUID player) in ["0"])) then { //Replace 0 with yo
 };
 ```
 1. Add above code to very bottom of init.sqf
-2. Place stresstest.sqf in your main Arma 2 OA folder.
-3. Use scroll wheel to execute in-game. Make sure the mission is fully loaded and your FPS has stabilized first.
-4. If you want to test global objects add this to the very bottom of server_functions.sqf:<br/>
-`#include "spawnglobal.sqf"`<br/>
-Then put spawnglobal.sqf in your dayz_server\init\ folder. <br/>
+2. Place stresstest.sqf in client main Arma 2 OA folder.
+3. Use scroll wheel to execute in-game. Make sure the mission is fully loaded and FPS has stabilized first.
+4. If you want to test global objects add this to the bottom of server_functions.sqf:<br/>
+`execVM "\z\addons\dayz_server\init\spawnobjects.sqf";`<br/>
+Then put spawnobjects.sqf in the dayz_server\init\ folder. <br/>
 
 Do not alt-tab out or minimize while the test is running. Doing so will cap your FPS to 20.<br/>
-Results can be found in your client RPT:<br/>
+Results can be found in client RPT:<br/>
 C:\Users\YourName\AppData\Local\ArmA 2 OA\arma2oa.RPT
 
 

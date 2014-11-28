@@ -50,13 +50,14 @@ for "_i" from 0 to 30 do {
 
 // Hide/disable sim/delete objects > _dist away
 //_objects = nearestObjects [[7840,8410,0],["AllVehicles","BuiltItems","DZE_Base_Object","DZE_Housebase","House","ModularItems"],12000]; // For all map objects //Remove "AllVehicles" to exclude drivable vehicles
+//waitUntil {uiSleep 1;systemChat "Waiting for objects array from server (may take a few minutes)..";(!isNil "spawnedObjectsArray")};
 {
 	if (player distance _x > _distance) then {
 		_x hideObject true;
 		//_x enableSimulation false; //uncomment to test disabling simulation
 		//deleteVehicle _x; //uncomment to test deleting (note deleting built-in map buildings will not work)
 	};
-} count _spawned; // Use _objects instead of _spawned to test all map objects // Or use spawnedArray for global objects from spawnglobal.sqf
+} count _spawned; // Use _objects instead of _spawned to test all map objects // Or use spawnedObjectsArray for global objects from spawnobjects.sqf
 
 // Record FPS for 60s after hiding objects
 uiSleep 2;
