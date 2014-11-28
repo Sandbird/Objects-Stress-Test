@@ -12,7 +12,7 @@ if (!isDedicated && ((getPlayerUID player) in ["0"])) then { //Replace 0 with yo
 };
 ```
 1. Add above code to very bottom of init.sqf
-2. Place stresstest.sqf in your client Arma 2 OA root directory.
+2. Place stresstest.sqf in your main Arma 2 OA folder.
 3. Use scroll wheel to execute in-game. Make sure the mission is fully loaded and your FPS has stabilized first.
 
 Do not alt-tab out or minimize while the test is running. Doing so will cap your FPS to 20.<br/>
