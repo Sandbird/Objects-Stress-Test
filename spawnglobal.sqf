@@ -4,7 +4,6 @@ _amount = 10000; // Amount of objects to spawn
 _spawned = [];
 
 // Record Server FPS for 60s before spawning objects
-uiSleep 90;
 for "_i" from 0 to 30 do {
     _log = format ["SERVER FPS: ( %1 ) BEFORE SPAWNING: ( %2 ) OBJECTS.  TIME: %3/60s",round diag_fps,_amount,_i*2];
     diag_log _log;
