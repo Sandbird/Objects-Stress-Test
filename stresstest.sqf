@@ -1,6 +1,7 @@
-private ["_amount","_log","_object","_random","_spawned"];
+private ["_amount","_distance","_log","_object","_random","_spawned"];
 
-_amount = 100000;
+_amount = 10000; // Amount of objects to spawn
+_distance = 2000; // Distance object must be away from player before it is hidden/disabled sim/deleted
 _spawned = [];
 _log = "------------------------------------------------------------  TEST STARTING  ------------------------------------------------------------";
 diag_log _log;
@@ -47,10 +48,10 @@ for "_i" from 0 to 30 do {
     uiSleep 2;
 };
 
-// Hide objects more than 2km away
+// Hide/disable sim/delete objects > _dist away
 //_objects = nearestObjects [[7840,8410,0],["AllVehicles","BuiltItems","DZE_Base_Object","DZE_Housebase","House","ModularItems"],12000]; // For all map objects //Remove "AllVehicles" to exclude drivable vehicles
 {
-	if (player distance _x > 2000) then {
+	if (player distance _x > _distance) then {
 		_x hideObject true;
 		//_x enableSimulation false; //uncomment to test disabling simulation
 		//deleteVehicle _x; //uncomment to test deleting (note deleting built-in map buildings will not work)
@@ -60,7 +61,7 @@ for "_i" from 0 to 30 do {
 // Record FPS for 60s after hiding objects
 uiSleep 2;
 for "_i" from 0 to 30 do {
-    _log = format ["CLIENT FPS: ( %1 ) AFTER HIDING: ( %2 ) OBJECTS.  TIME: %3/60s",round diag_fps,_amount,_i*2];
+    _log = format ["CLIENT FPS: ( %1 ) AFTER HIDING/DISABLING SIM/DELETING OBJECTS > %3m AWAY.  TIME: %2/60s",round diag_fps,_i*2,_distance];
     diag_log _log;
     systemChat _log;
     uiSleep 2;
