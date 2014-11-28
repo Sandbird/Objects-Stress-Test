@@ -34,6 +34,10 @@ for "_i" from 0 to _amount do {
 	_spawned set [count _spawned,_object];
 };
 
+// Send array of objects to client for testing
+spawnedArray = _spawned;
+publicVariable "spawnedArray";
+
 // Record FPS for 60s after spawning objects
 uiSleep 2;
 for "_i" from 0 to 30 do {
@@ -41,9 +45,3 @@ for "_i" from 0 to 30 do {
     diag_log _log;
     uiSleep 2;
 };
-
-_log = "------------------------------------------------  ALL OBJECTS SPAWNED  ------------------------------------------------";
-
-// Send array of objects to client for testing
-spawnedArray = _spawned;
-publicVariable "spawnedArray";
