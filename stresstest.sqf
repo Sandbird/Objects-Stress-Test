@@ -18,7 +18,7 @@ for "_i" from 0 to 30 do {
 // Spawn objects
 for "_i" from 0 to _amount do {
 	_random = [random 14000,random 14000,0];
-	_object = "land_panelak3" createVehicleLocal _random; // "Skoda" for cars, "GUE_Commander" for traders
+	_object = "land_panelak3" createVehicleLocal _random; // "GUE_Commander" for traders
 	_object setDir 0;
 	_object setPos _random;
 	_object allowDamage false;
